@@ -12,8 +12,13 @@ COPY defaults/ /root/
 #    apt-get upgrade -y && \
 #    apt-get dist-upgrade -y
 
+RUN apt-get update
+RUN apt-get upgrade -y
+RUN apt-get dist-upgrade -y
+
 # Install and configure Mariadb
-RUN apt install mariadb-server -y
+
+RUN apt-get install mariadb-server -y
 RUN rm /etc/mysql/my.cnf
 RUN cp /etc/mysql/mariadb.conf.d/50-server.cnf /etc/mysql/my.cnf
 RUN sed -i s/'character-set-server  = utf8mb4'/'character-set-server = latin1'/g /etc/mysql/my.cnf
