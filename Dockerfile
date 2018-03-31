@@ -8,9 +8,9 @@ ENV SHMEM="90%"
 COPY defaults/ /root/
 
 # Update container
-RUN apt-get update && \
-    apt-get upgrade -y && \
-    apt-get dist-upgrade -y
+#RUN apt-get update && \
+#    apt-get upgrade -y && \
+#    apt-get dist-upgrade -y
 
 # Install and configure Mariadb
 RUN apt install mariadb-server -y
