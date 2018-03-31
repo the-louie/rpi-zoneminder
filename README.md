@@ -11,5 +11,5 @@ docker run \
    --name zoneminder \
    -v "/opt/zoneminder/config":"/config":rw \
    -v "/opt/zoneminder/data":"/var/cache/zoneminder":rw \
-   koenkk/rpi-zoneminder
+   elradix/rpi-zoneminder
 ```
