@@ -10,8 +10,8 @@ COPY defaults/ /root/
 # Update container
 RUN apt-get update && \
     apt-get upgrade -y && \
-    apt-get dist-upgrade -y && \
-    apt-get apt-utils -y
+    apt-get dist-upgrade -y
+   
 
 # Install and configure Mariadb
 RUN apt --allow-unauthenticated install mariadb-server -y
