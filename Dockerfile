@@ -53,5 +53,9 @@ EXPOSE 80
 ADD init /usr/local/bin
 RUN chmod +x /usr/local/bin
 
+# add libs
+ADD /opt/vc /opt/vc
+ldconfig /opt/vc
+
 # Entrypoint
 ENTRYPOINT ["init"]
