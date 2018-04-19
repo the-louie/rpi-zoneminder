@@ -32,6 +32,9 @@ RUN chmod 740 /etc/zm/zm.conf
 RUN chown root:www-data /etc/zm/zm.conf
 RUN chown -R www-data:www-data /usr/share/zoneminder/
 
+# install vlc
+apt-get install -y libvlc-dev libvlccore-dev vlc
+
 # Install and configure Apache2/PHP
 RUN apt install php php-mysql apache2-mod-php7.0 php7.0-gd apache2 cakephp libav-tools ssmtp mailutils php-curl php-gd -y
 RUN adduser www-data video
@@ -52,10 +55,6 @@ EXPOSE 80
 # Add init
 ADD init /usr/local/bin
 RUN chmod +x /usr/local/bin
-
-# add libs
-ADD /opt/vc /opt/vc
-ldconfig /opt/vc
 
 # Entrypoint
 ENTRYPOINT ["init"]
